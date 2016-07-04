@@ -88,11 +88,14 @@ function fnTab(){
     var oTimer = 0;
     var iStartTouchX = 0;
     var iStartX = 0;
-    oTimer = setInterval(function(){
-        iNow++;
-        iNow=iNow%aNav.length;
-        tab();
-    },2000);
+    autoPlay();
+    function autoPlay(){
+        oTimer = setInterval(function(){
+            iNow++;
+            iNow=iNow%aNav.length;
+            tab();
+        },2000);
+    };
 
     bind(oTab,"touchstart",fnStart);
     bind(oTab,"touchmove",fnMove);
@@ -123,6 +126,7 @@ function fnTab(){
         }
         console.log(iNow);
         tab();
+        autoPlay();
     }
 
     function tab(){
